@@ -1,0 +1,19 @@
+{
+  "course": {
+    "code": "CEG5206",
+    "title": "Algorithms & Performance Optimization for Computing"
+  },
+  "groups": [
+    { "id": "01", "url": null },
+    { "id": "02", "url": "https://github.com/NUS-CEG5206/TinyLLM-llama2" },
+    { "id": "03", "url": "https://github.com/RichterWang/cuda_fused_attention" },
+    { "id": "04", "url": null },
+    { "id": "05", "url": "https://github.com/aksrrtpchsiung-max/CEG5206-G5-CA2" },
+    { "id": "06", "url": "https://github.com/chengmeizeng9-ctrl/CEG5206-Group6" },
+    { "id": "07", "url": null },
+    { "id": "08", "url": "https://github.com/szwww2/ATTENTION_OPTIMIZATION_on_CPU" },
+    { "id": "09", "url": null },
+    { "id": "10", "url": "https://github.com/seanngja/merkletree" },
+    { "id": "11", "url": "https://github.com/ong-peter/ceg5206_group_project" }
+  ]
+}

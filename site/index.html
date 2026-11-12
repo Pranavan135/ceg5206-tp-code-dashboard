@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Browse CEG5206 group project repositories and their RepoSense contribution report.">
+    <meta name="color-scheme" content="light">
+    <title>CEG5206 Code Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <a class="brand" href="./" aria-label="CEG5206 dashboard home">
+          <span class="brand-icon" aria-hidden="true">&gt;_</span>
+          <span id="brand-code">CEG5206</span>
+        </a>
+        <nav class="nav" aria-label="Dashboard sections">
+          <a href="#repositories">Repositories</a>
+          <a href="#contributions">Contributions</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="dashboard-title">
+        <div class="shell hero-inner">
+          <div>
+            <p class="course-title" id="course-title">Algorithms &amp; Performance Optimization for Computing</p>
+            <h1 id="dashboard-title">CEG5206 Code Dashboard</h1>
+            <p class="hero-description">Browse group project repositories and explore code contributions with RepoSense.</p>
+          </div>
+          <dl class="stats" id="stats" hidden>
+            <div>
+              <dt>Project groups</dt>
+              <dd id="group-count"></dd>
+            </div>
+            <div>
+              <dt>Repositories linked</dt>
+              <dd id="linked-count"></dd>
+            </div>
+            <div>
+              <dt>URLs pending</dt>
+              <dd id="pending-count"></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <div class="shell content">
+        <section class="report" id="contributions" aria-labelledby="report-title">
+          <div class="report-icon" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="report-copy">
+            <h2 id="report-title">RepoSense contribution report</h2>
+            <p>Explore commit timelines, per-author contributions, and line authorship.</p>
+            <p class="report-detail" id="report-detail" aria-live="polite">Loading report status…</p>
+            <p class="report-detail" id="report-unavailable" hidden></p>
+          </div>
+          <a class="report-link" id="report-link" href="./reposense-report/" hidden>
+            Open RepoSense <span aria-hidden="true">↗</span>
+          </a>
+        </section>
+
+        <section id="repositories" aria-labelledby="repository-title">
+          <div class="section-heading">
+            <h2 id="repository-title">Group repositories</h2>
+            <p id="result-count" role="status" aria-atomic="true"></p>
+          </div>
+          <div class="directory">
+            <div class="controls" id="controls" hidden>
+              <div class="search-field">
+                <label for="group-search">Search groups or repositories</label>
+                <input id="group-search" type="search" placeholder="e.g. Group 08 or attention" autocomplete="off">
+              </div>
+              <div class="filter-field">
+                <label for="repository-status">Repository status</label>
+                <select id="repository-status">
+                  <option value="all">All statuses</option>
+                  <option value="linked">Linked</option>
+                  <option value="pending">URL pending</option>
+                </select>
+              </div>
+            </div>
+
+            <p class="directory-message" id="directory-message">Loading group repositories…</p>
+            <noscript><p class="directory-message">Enable JavaScript to view the dashboard.</p></noscript>
+
+            <table id="repository-table" hidden>
+              <caption class="visually-hidden">GitHub repositories by project group</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Group</th>
+                  <th scope="col">GitHub repository</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="repository-rows"></tbody>
+            </table>
+
+            <template id="repository-row-template">
+              <tr>
+                <th scope="row"><span class="group-name"></span></th>
+                <td class="repository-cell">
+                  <a class="repository-link" target="_blank" rel="noopener noreferrer" hidden>
+                    <span class="repository-path"></span><span aria-hidden="true">↗</span>
+                    <span class="visually-hidden"> (opens in a new tab)</span>
+                  </a>
+                  <span class="repository-placeholder" hidden aria-hidden="true">—</span>
+                </td>
+                <td><span class="status"></span></td>
+              </tr>
+            </template>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span id="footer-title">CEG5206 · Algorithms &amp; Performance Optimization for Computing</span>
+        <a href="https://reposense.org/">About RepoSense <span aria-hidden="true">↗</span></a>
+      </div>
+    </footer>
+  </body>
+</html>
