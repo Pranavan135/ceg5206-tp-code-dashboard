@@ -44,7 +44,7 @@ jobs:
           python-version: '3.12'
 
       - name: Build dashboard and RepoSense report
-        run: python3 scripts/build.py --jar vendor/RepoSense.jar
+        run: python3 scripts/build.py --jar vendor/RepoSense.jar --since 28/09/2026
 
       - name: Upload the generated site
         uses: actions/upload-pages-artifact@v4
