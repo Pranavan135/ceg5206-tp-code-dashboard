@@ -20,6 +20,10 @@ SITE = ROOT / "site"
 DATA_FILE = "dashboard-data.json"
 REPORT_DIR = "reposense-report"
 GITHUB_REPOSITORY = re.compile(r"https://github\.com/([A-Za-z0-9-]+/[A-Za-z0-9_.-]+)/?")
+# RepoSense tries to read this directory as a file in Group 06.
+REPOSITORY_IGNORE_GLOBS = {
+    "chengmeizeng9-ctrl/ceg5206-group6": ["results/full", "results/full/**"],
+}
 
 
 def write_json(path, data):
@@ -87,7 +91,7 @@ def anonymous_git_environment():
     env = {
         name: value for name, value in os.environ.items()
         if not name.startswith(("GIT_CONFIG_", "GIT_TRACE"))
-        and name not in {"GIT_CONFIG", "GIT_DIR", "GIT_WORK_TREE", "GIT_COMMON_DIR"}
+           and name not in {"GIT_CONFIG", "GIT_DIR", "GIT_WORK_TREE", "GIT_COMMON_DIR"}
     }
     env.update({
         "GIT_CONFIG_GLOBAL": os.devnull,
@@ -110,6 +114,9 @@ def run_reposense(jar, work, output, course_code, repositories, since, until):
                 "branches": [{
                     "branch": repo["branch"],
                     "blurb": f"Group {', '.join(repo['groups'])}",
+                    "ignore-glob-list": REPOSITORY_IGNORE_GLOBS.get(
+                        repo_slug(repo["url"]).lower(), []
+                    ),
                 }],
             }
             for repo in repositories
@@ -174,7 +181,7 @@ def check_output(output):
     if output.is_symlink():
         raise ValueError(f"Output must be a regular directory: {output}")
     if output.exists() and (
-        not output.is_dir() or (any(output.iterdir()) and not (output / DATA_FILE).is_file())
+            not output.is_dir() or (any(output.iterdir()) and not (output / DATA_FILE).is_file())
     ):
         raise ValueError(f"Choose an empty output directory or an existing dashboard build: {output}")
 
@@ -223,7 +230,7 @@ def main():
         if args.until == "d1":
             raise ValueError("--until requires a date in DD/MM/YYYY format.")
         if args.since != "d1" and args.until and (
-            datetime.strptime(args.since, "%d/%m/%Y") > datetime.strptime(args.until, "%d/%m/%Y")
+                datetime.strptime(args.since, "%d/%m/%Y") > datetime.strptime(args.until, "%d/%m/%Y")
         ):
             raise ValueError("--since must be on or before --until.")
         build(args)
