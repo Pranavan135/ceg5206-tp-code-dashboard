@@ -13,7 +13,7 @@ Seven repository URLs are configured. Groups 01, 04, 07 and 09 are waiting for l
    git init -b main
    git add .
    git commit -m "Add CEG5206 code dashboard"
-   git remote add origin https://github.com/YOUR-USERNAME/ceg5206-code-dashboard.git
+   git remote add origin https://github.com/pranavan135/ceg5206-tp-code-dashboard.git
    git push -u origin main
    ```
 
