@@ -2,7 +2,7 @@
 
 A GitHub Pages dashboard for the 11 groups in CEG5206, Algorithms & Performance Optimization for Computing. The homepage lists the project repositories. The RepoSense report provides commit timelines, contributor breakdowns and line-level code authorship for the public repositories included in each build.
 
-Seven repository URLs are configured. Groups 01, 04, 07 and 09 are waiting for links.
+Seven repository URLs are configured. Groups 01, 04, and 07 are waiting for links.
 
 ## Publish on GitHub Pages
 
