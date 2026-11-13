@@ -4,7 +4,7 @@
     "title": "Algorithms & Performance Optimization for Computing"
   },
   "groups": [
-    { "id": "01", "url": null },
+    { "id": "01", "url": "https://github.com/ktk-07/Flash-Attention-Forward" },
     { "id": "02", "url": "https://github.com/NUS-CEG5206/TinyLLM-llama2" },
     { "id": "03", "url": "https://github.com/RichterWang/cuda_fused_attention" },
     { "id": "04", "url": null },
